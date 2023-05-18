@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            max-width: 980px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{user.first_name}} {{user.last_name}}</h1>
+        <h2>{{user.email}}</h2>
+    </div>
+    <form action="/users/{{ user.id }}" method="POST">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" value="{{user.first_name}}"><br>
+        
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" value="{{user.last_name}}"><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{user.email}}"><br>
+        <input type="hidden" name="_METHOD" value="PUT">
+        <button type="submit">Update</button>
+        <a href="/download" download><button type="button">Download</button></a>
+        </form>
+</body>
+</html>
